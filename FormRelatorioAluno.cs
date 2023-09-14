@@ -2,10 +2,12 @@
 using ReaLTaiizor.Forms;
 using Spire.Pdf;
 using Spire.Pdf.Graphics;
+using Spire.Pdf.Tables;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -66,7 +68,8 @@ namespace Projeto4
 
             PdfBrush brush1 = PdfBrushes.Black;
             PdfTrueTypeFont font1 = new PdfTrueTypeFont(
-                    new Font("Arial", 16f,
+                    new Font("Arial",
+                    16f,
                     FontStyle.Bold)
                 );
 
@@ -74,7 +77,28 @@ namespace Projeto4
 
             page.Canvas.DrawString("Relatório de Alunos", font1, brush1, page.Canvas.ClientSize.Width/2, y, format1);
 
-            doc.SaveToFile("RelatorioAlunos.pdf");
+            PdfTable pdfTable= new PdfTable();
+
+            pdfTable.Style.CellPadding = 2;
+            pdfTable.Style.BorderPen = new PdfPen(brush1, 0.75f);
+            pdfTable.Style.HeaderStyle.StringFormat = new PdfStringFormat(PdfTextAlignment.Center);
+            pdfTable.Style.HeaderSource = PdfHeaderSource.ColumnCaptions;
+            pdfTable.Style.HeaderStyle.BackgroundBrush = PdfBrushes.Cyan;
+            pdfTable.Style.ShowHeader = true;
+            pdfTable.DataSource = dt;
+            foreach (PdfColumn col in pdfTable.Columns)
+            {
+                col.StringFormat = new PdfStringFormat(
+                    PdfTextAlignment.Center, PdfVerticalAlignment.Middle);
+            }
+            pdfTable.Draw(page, new PointF(0, y+font1.Size+4));
+
+
+            doc.SaveToFile(@"RelatorioAlunos.pdf");
+            //MessageBox.Show(Directory.GetParent(Directory.GetCurrentDirectory()) + "");
+            
+
+            
 
 
         }
@@ -82,6 +106,31 @@ namespace Projeto4
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             MontaRelatorio();
+            
+            string impressora = cboImpressora.Text;
+            if (String.IsNullOrEmpty(impressora)) return;
+
+            PdfDocument doc = new PdfDocument();
+            
+            doc.LoadFromFile(@"RelatorioAlunos.pdf");
+            doc.PrintSettings.PrinterName = impressora;
+            doc.Print();
+
+
+
+        }
+
+        private void btnVisualizar_Click(object sender, EventArgs e)
+        {
+            MontaRelatorio();
+            //Process.Start("RelatorioAlunos.pdf");
+
+            var p = new Process();
+            p.StartInfo = new ProcessStartInfo(@"RelatorioAlunos.pdf")
+            {
+                UseShellExecute = true
+            };
+            p.Start();
         }
     }
 }
