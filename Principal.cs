@@ -10,7 +10,7 @@ namespace Projeto4
 
         private void alunosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Cadastro cadastro = new Cadastro();
+            FormAluno cadastro = new FormAluno();
             cadastro.MdiParent = this;
             cadastro.Show();
         }

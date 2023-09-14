@@ -1,6 +1,6 @@
 ﻿namespace Projeto4
 {
-    partial class Cadastro
+    partial class FormAluno
     {
         /// <summary>
         /// Required designer variable.

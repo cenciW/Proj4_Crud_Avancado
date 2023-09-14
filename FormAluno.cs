@@ -16,11 +16,11 @@ using System.Diagnostics;
 
 namespace Projeto4
 {
-    public partial class Cadastro : MaterialForm
+    public partial class FormAluno : MaterialForm
     {
         bool isAlteracao = false;
         string cs = @"server=127.0.0.1;uid=root;pwd=;database=academico";
-        public Cadastro()
+        public FormAluno()
         {
             InitializeComponent();
         }

@@ -245,12 +245,13 @@
             this.btnImprimir.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnImprimir.UseAccentColor = false;
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // FormRelatorioAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 520);
+            this.ClientSize = new System.Drawing.Size(700, 493);
             this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.Impressora);
