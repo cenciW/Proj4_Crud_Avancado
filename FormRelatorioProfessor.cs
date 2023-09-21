@@ -119,7 +119,8 @@ namespace Projeto4
 
         }
 
-        private void btnVisualizar_Click(object sender, EventArgs e)
+
+        private void btnVisualizar_Click_1(object sender, EventArgs e)
         {
             MontaRelatorio();
             //Process.Start("RelatorioProfessores.pdf");
