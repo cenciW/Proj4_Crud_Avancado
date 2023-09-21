@@ -1,32 +1,31 @@
 ﻿using MySql.Data.MySqlClient;
 using ReaLTaiizor.Forms;
-using Spire.Pdf;
 using Spire.Pdf.Graphics;
 using Spire.Pdf.Tables;
+using Spire.Pdf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Projeto4
 {
-    public partial class FormRelatorioAluno : MaterialForm
+    public partial class FormRelatorioCurso : MaterialForm
     {
         bool isAlteracao = false;
         string cs = @"server=127.0.0.1;uid=root;pwd=;database=academico";
-        public FormRelatorioAluno()
+        public FormRelatorioCurso()
         {
             InitializeComponent();
             CarregaImpressoras();
         }
-
-        private void CarregaImpressoras() 
+        private void CarregaImpressoras()
         {
             foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
             {
@@ -38,21 +37,21 @@ namespace Projeto4
         {
             var con = new MySqlConnection(cs);
             con.Open();
-            var sql = "SELECT * FROM aluno WHERE 1 = 1";
-            if(cboEstado.Text!= "")
-                sql += "and estado = @estado";
+            var sql = "SELECT * FROM curso WHERE 1 = 1";
+            if (cboTipoCurso.Text != "")
+                sql += " and tipo = @tipo";
 
-            if (cboEstado.Text != "")
-                sql += "and cidade = @cidade";
+            if ((txtAnoCurso.Text) != "")
+                sql += " and ano_criacao = @ano_criacao";
 
             var sqlAd = new MySqlDataAdapter();
             sqlAd.SelectCommand = new MySqlCommand(sql, con);
 
-            if (cboEstado.Text!="")
-                sqlAd.SelectCommand.Parameters.AddWithValue("@estado", cboEstado.Text);
+            if (cboTipoCurso.Text != "")
+                sqlAd.SelectCommand.Parameters.AddWithValue("@tipo", cboTipoCurso.Text);
 
-            if (txtCidade.Text != "")
-                sqlAd.SelectCommand.Parameters.AddWithValue("@cidade", txtCidade.Text);
+            if (txtAnoCurso.Text != "")
+                sqlAd.SelectCommand.Parameters.AddWithValue("@ano_criacao", int.Parse(txtAnoCurso.Text));
 
             var dt = new DataTable();
             sqlAd.Fill(dt);
@@ -75,9 +74,9 @@ namespace Projeto4
 
             PdfStringFormat format1 = new PdfStringFormat(PdfTextAlignment.Center);
 
-            page.Canvas.DrawString("Relatório de Alunos", font1, brush1, page.Canvas.ClientSize.Width/2, y, format1);
+            page.Canvas.DrawString("Relatório de Cursos", font1, brush1, page.Canvas.ClientSize.Width / 2, y, format1);
 
-            PdfTable pdfTable= new PdfTable();
+            PdfTable pdfTable = new PdfTable();
 
             pdfTable.Style.CellPadding = 2;
             pdfTable.Style.BorderPen = new PdfPen(brush1, 0.75f);
@@ -91,15 +90,15 @@ namespace Projeto4
                 col.StringFormat = new PdfStringFormat(
                     PdfTextAlignment.Center, PdfVerticalAlignment.Middle);
             }
-            pdfTable.Draw(page, new PointF(0, y+font1.Size+4));
+            pdfTable.Draw(page, new PointF(0, y + font1.Size + 4));
 
 
-            doc.SaveToFile(@"RelatorioAlunos.pdf");
+            doc.SaveToFile(@"RelatorioCursos.pdf");
 
             //MessageBox.Show(Directory.GetParent(Directory.GetCurrentDirectory()) + "");
-            
 
-            
+
+
 
 
         }
@@ -107,27 +106,25 @@ namespace Projeto4
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             MontaRelatorio();
-            
+
             string impressora = cboImpressora.Text;
             if (String.IsNullOrEmpty(impressora)) return;
 
             PdfDocument doc = new PdfDocument();
-            
-            doc.LoadFromFile(@"RelatorioAlunos.pdf");
+
+            doc.LoadFromFile(@"RelatorioCursos.pdf");
             doc.PrintSettings.PrinterName = impressora;
             doc.Print();
-
-
 
         }
 
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
             MontaRelatorio();
-            //Process.Start("RelatorioAlunos.pdf");
+            //Process.Start("RelatorioCursos.pdf");
 
             var p = new Process();
-            p.StartInfo = new ProcessStartInfo(@"RelatorioAlunos.pdf")
+            p.StartInfo = new ProcessStartInfo(@"RelatorioCursos.pdf")
             {
                 UseShellExecute = true
             };

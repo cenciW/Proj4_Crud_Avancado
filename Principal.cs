@@ -43,5 +43,12 @@ namespace Projeto4
             formRelAluno.MdiParent = this;
             formRelAluno.Show();
         }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formRelCurso = new FormRelatorioCurso();
+            formRelCurso.MdiParent = this;
+            formRelCurso.Show();
+        }
     }
 }
