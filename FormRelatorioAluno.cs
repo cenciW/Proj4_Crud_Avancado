@@ -39,12 +39,12 @@ namespace Projeto4
         {
             var con = new MySqlConnection(cs);
             con.Open();
-            var sql = "SELECT * FROM aluno WHERE 1 = 1";
+            var sql = "SELECT * FROM aluno WHERE 1 = 1 ";
             if(cboEstado.Text!= "")
-                sql += "and estado = @estado";
+                sql += " and estado = @estado";
 
-            if (cboEstado.Text != "")
-                sql += "and cidade = @cidade";
+            if (txtCidade.Text != "")
+                sql += " and cidade = @cidade";
 
             var sqlAd = new MySqlDataAdapter();
             sqlAd.SelectCommand = new MySqlCommand(sql, con);
