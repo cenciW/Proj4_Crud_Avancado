@@ -33,9 +33,9 @@
             this.Impressora = new System.Windows.Forms.GroupBox();
             this.cboImpressora = new ReaLTaiizor.Controls.MaterialComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtAnoCurso = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboTipoCurso = new ReaLTaiizor.Controls.MaterialComboBox();
-            this.txtAnoCurso = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             this.Impressora.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -126,6 +126,37 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Agrupamento";
             // 
+            // txtAnoCurso
+            // 
+            this.txtAnoCurso.AnimateReadOnly = false;
+            this.txtAnoCurso.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtAnoCurso.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtAnoCurso.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtAnoCurso.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtAnoCurso.Depth = 0;
+            this.txtAnoCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtAnoCurso.HideSelection = true;
+            this.txtAnoCurso.Hint = "Ano de Criação do Curso";
+            this.txtAnoCurso.LeadingIcon = null;
+            this.txtAnoCurso.Location = new System.Drawing.Point(6, 32);
+            this.txtAnoCurso.MaxLength = 32767;
+            this.txtAnoCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.txtAnoCurso.Name = "txtAnoCurso";
+            this.txtAnoCurso.PasswordChar = '\0';
+            this.txtAnoCurso.PrefixSuffixText = null;
+            this.txtAnoCurso.ReadOnly = false;
+            this.txtAnoCurso.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtAnoCurso.SelectedText = "";
+            this.txtAnoCurso.SelectionLength = 0;
+            this.txtAnoCurso.SelectionStart = 0;
+            this.txtAnoCurso.ShortcutsEnabled = true;
+            this.txtAnoCurso.Size = new System.Drawing.Size(601, 48);
+            this.txtAnoCurso.TabIndex = 3;
+            this.txtAnoCurso.TabStop = false;
+            this.txtAnoCurso.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtAnoCurso.TrailingIcon = null;
+            this.txtAnoCurso.UseSystemPasswordChar = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cboTipoCurso);
@@ -165,37 +196,6 @@
             this.cboTipoCurso.StartIndex = 0;
             this.cboTipoCurso.TabIndex = 1;
             // 
-            // txtAnoCurso
-            // 
-            this.txtAnoCurso.AnimateReadOnly = false;
-            this.txtAnoCurso.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtAnoCurso.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtAnoCurso.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtAnoCurso.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtAnoCurso.Depth = 0;
-            this.txtAnoCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtAnoCurso.HideSelection = true;
-            this.txtAnoCurso.Hint = "Ano de Criação do Curso";
-            this.txtAnoCurso.LeadingIcon = null;
-            this.txtAnoCurso.Location = new System.Drawing.Point(6, 32);
-            this.txtAnoCurso.MaxLength = 32767;
-            this.txtAnoCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.txtAnoCurso.Name = "txtAnoCurso";
-            this.txtAnoCurso.PasswordChar = '\0';
-            this.txtAnoCurso.PrefixSuffixText = null;
-            this.txtAnoCurso.ReadOnly = false;
-            this.txtAnoCurso.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtAnoCurso.SelectedText = "";
-            this.txtAnoCurso.SelectionLength = 0;
-            this.txtAnoCurso.SelectionStart = 0;
-            this.txtAnoCurso.ShortcutsEnabled = true;
-            this.txtAnoCurso.Size = new System.Drawing.Size(601, 48);
-            this.txtAnoCurso.TabIndex = 3;
-            this.txtAnoCurso.TabStop = false;
-            this.txtAnoCurso.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtAnoCurso.TrailingIcon = null;
-            this.txtAnoCurso.UseSystemPasswordChar = false;
-            // 
             // FormRelatorioCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -207,6 +207,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormRelatorioCurso";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRelatorioCurso";
             this.Impressora.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

@@ -534,14 +534,15 @@
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             this.dataGridView1.Enter += new System.EventHandler(this.dataGridView1_Enter);
             // 
-            // Cadastro
+            // FormAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 527);
             this.Controls.Add(this.materialTabControl1);
             this.DrawerTabControl = this.materialTabControl1;
-            this.Name = "Cadastro";
+            this.Name = "FormAluno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro";
             this.materialTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

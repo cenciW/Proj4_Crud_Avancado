@@ -348,6 +348,7 @@
             this.Controls.Add(this.materialTabControl2);
             this.DrawerTabControl = this.materialTabControl2;
             this.Name = "Curso";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Curso";
             this.materialTabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);

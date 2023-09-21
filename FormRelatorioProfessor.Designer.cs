@@ -206,6 +206,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormRelatorioProfessor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRelatorioProfessor";
             this.Impressora.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
