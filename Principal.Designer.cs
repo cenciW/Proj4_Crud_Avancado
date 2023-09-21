@@ -37,6 +37,7 @@
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alunosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.professoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +87,8 @@
             // 
             this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.alunosToolStripMenuItem1,
-            this.cursosToolStripMenuItem});
+            this.cursosToolStripMenuItem,
+            this.professoresToolStripMenuItem1});
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.relatóriosToolStripMenuItem.Text = "Relatórios";
@@ -104,6 +106,13 @@
             this.cursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cursosToolStripMenuItem.Text = "Cursos";
             this.cursosToolStripMenuItem.Click += new System.EventHandler(this.cursosToolStripMenuItem_Click);
+            // 
+            // professoresToolStripMenuItem1
+            // 
+            this.professoresToolStripMenuItem1.Name = "professoresToolStripMenuItem1";
+            this.professoresToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.professoresToolStripMenuItem1.Text = "Professores";
+            this.professoresToolStripMenuItem1.Click += new System.EventHandler(this.professoresToolStripMenuItem1_Click);
             // 
             // Principal
             // 
@@ -137,5 +146,6 @@
         private ToolStripMenuItem relatóriosToolStripMenuItem;
         private ToolStripMenuItem alunosToolStripMenuItem1;
         private ToolStripMenuItem cursosToolStripMenuItem;
+        private ToolStripMenuItem professoresToolStripMenuItem1;
     }
 }
